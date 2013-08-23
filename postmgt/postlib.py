@@ -33,8 +33,8 @@ class PostFixQueueMgt(object):
             email = {}
 
             # Find ID as the first line (postqueue output is a cluster of 3 lines)
-            if re.match('^(\w{12})+', line):
-                match = re.match('^(\w{12})\*?\s+(\d+)\s+(\w{3}\s\w{3}\s\d{1,2}\s\d{2}:\d{2}:\d{2})\s+(.*)', line)
+            if re.match('^(\w{8,12})+', line):
+                match = re.match('^(\w{8,12})\*?\s+(\d+)\s+(\w{3}\s\w{3}\s\d{1,2}\s\d{2}:\d{2}:\d{2})\s+(.*)', line)
 
                 email['ID'] = match.group(1)
                 email['Size'] = match.group(2)
