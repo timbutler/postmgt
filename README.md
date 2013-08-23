@@ -16,7 +16,12 @@ Tim Butler
 ## Installation
 
 ```bash
-pip install -e git+https://github.com/timbutler/postmgt.git
+pip install -e https://github.com/timbutler/postmgt/archive/master.zip
+```
+or:
+
+```bash
+easy_install https://github.com/timbutler/postmgt/archive/master.zip
 ```
 
 ## Usage

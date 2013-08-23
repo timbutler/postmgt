@@ -1,4 +1,3 @@
-import os
 from setuptools import setup, find_packages
 
 setup(
@@ -12,7 +11,6 @@ setup(
     description='Basic Postfix queue management for rapid deletion of emails',
     long_description=open("README.md").read(),
     packages=find_packages(),
-
     scripts=['src/postmgt'],
     classifiers=[
         'Programming Language :: Python',
