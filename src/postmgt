@@ -27,7 +27,7 @@ Examples:
 """
 
 from docopt import docopt
-import postlib
+from postmgt import postlib
 from blessings import Terminal
 
 

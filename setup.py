@@ -13,7 +13,7 @@ setup(
     long_description=open("README.md").read(),
     packages=find_packages(),
 
-    scripts=['postmgt'],
+    scripts=['src/postmgt'],
     classifiers=[
         'Programming Language :: Python',
         'Intended Audience :: System Administrators',
