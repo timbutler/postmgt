@@ -11,7 +11,7 @@ setup(
     description='Basic Postfix queue management for rapid deletion of emails',
     long_description=open("README.md").read(),
     packages=find_packages(),
-    scripts=['src/postmgt'],
+    scripts=['postmgt/postmgt'],
     classifiers=[
         'Programming Language :: Python',
         'Intended Audience :: System Administrators',
