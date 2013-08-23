@@ -1,0 +1,73 @@
+#!/usr/bin/env python
+"""Simple Postfix Queue Management
+
+Usage:
+  postmgt count
+  postmgt list
+  postmgt deletefrom  <from>
+  deleteto <to>
+  postmgt deletesubject <subject>
+  viewemail <messageid>
+  viewheaders <messageid>
+
+Arguments:
+  count                        Display a count of the emails in the queue
+  list                         Display a list of all emails in the queue
+  viewemail <messageid>        View an email
+  viewheaders <messageid>      View the headers of an email
+  deleteto <to>                Delete email from the queue based on sender (from) address
+  deletefrom <from>            Delete email from the queue based on sender (from) address
+  deletesubject <subject>      Delete email from the queue based on subject
+
+Examples:
+  postmgt deletefrom spammer@domain.com
+  postmgt deletesubject "Failure Notice"
+  postmgt count
+  postmgt viewheaders 1244E4206881
+"""
+
+from docopt import docopt
+import postlib
+from blessings import Terminal
+
+
+def main(args):
+    mgr = postlib.PostFixQueueMgt()
+    t = Terminal()
+    if args['count']:
+        print mgr.count()
+
+    elif args['list']:
+
+        print ("{t.bold}Postfix Email Queue (Total: %s)" % mgr.count()).format(t=t)
+        print "-------------------------------------------------------------------------------------------"
+        for email in mgr.emaillist():
+            print ("{t.bold}[ID]{t.normal}: %s{t.green} [To]{t.normal}: %s{t.blue} [From]{t.normal}: %s {t.yellow}[Subject]:{t.normal} %s" %
+                   (email['ID'], email['To'], email['From'], email['Subject'])).format(t=t)
+
+
+    elif args['deletesubject']:
+        mgr.delete_subject(args['<subject>'])
+
+    elif args['deletefrom']:
+        mgr.delete_from(args['<from>'])
+
+    elif args['deleteto']:
+        mgr.delete_to(args['<to>'])
+
+    elif args['viewemail']:
+        email = mgr.view(args['<messageid>'])
+        print ("{t.bold}Email [ID] %s{t.normal}" % args['<messageid>']).format(t=t)
+        print "-------------------------------------------------------------------------------------------"
+        print email
+
+    elif args['viewheaders']:
+        email = mgr.view(args['<messageid>'], headersonly=True)
+        print ("{t.bold}Email [ID] %s{t.normal} (Headers Only)" % args['<messageid>']).format(t=t)
+        print "-------------------------------------------------------------------------------------------"
+        print email
+
+
+if __name__ == "__main__":
+    arguments = docopt(__doc__)
+    main(arguments)
