@@ -10,7 +10,7 @@ setup(
     author='Tim Butler',
     author_email='tim.butler.au+github@gmail.com',
     description='Basic Postfix queue management for rapid deletion of emails',
-    long_description=os.read("README.md"),
+    long_description=open("README.md").read(),
     packages=find_packages(),
 
     scripts=['postmgt'],
