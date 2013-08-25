@@ -5,7 +5,7 @@ Usage:
   postmgt count
   postmgt list
   postmgt deletefrom  <from>
-  deleteto <to>
+  postmgt deleteto <to>
   postmgt deletesubject <subject>
   viewemail <messageid>
   viewheaders <messageid>
@@ -15,8 +15,8 @@ Arguments:
   list                         Display a list of all emails in the queue
   viewemail <messageid>        View an email
   viewheaders <messageid>      View the headers of an email
-  deleteto <to>                Delete email from the queue based on sender (from) address
-  deletefrom <from>            Delete email from the queue based on sender (from) address
+  deleteto <to>                Delete email from the queue based on sender (TO) address
+  deletefrom <from>            Delete email from the queue based on sender (FROM) address
   deletesubject <subject>      Delete email from the queue based on subject
 
 Examples:
