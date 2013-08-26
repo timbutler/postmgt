@@ -92,6 +92,6 @@ class PostFixQueueMgt(object):
         """ Returns a copy of the email as a string, headersonly = only the headers of the email"""
 
         if headersonly:
-            return self.self._processoutput(self.cmd_postcat + " -h -q %s" % messageid, splitlines=False)
+            return self._processoutput(self.cmd_postcat + " -h -q %s" % messageid, splitlines=False)
         else:
             return self._processoutput(self.cmd_postcat + " -q %s" % messageid, splitlines=False)
