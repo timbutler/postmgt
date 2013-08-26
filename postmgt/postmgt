@@ -7,8 +7,8 @@ Usage:
   postmgt deletefrom  <from>
   postmgt deleteto <to>
   postmgt deletesubject <subject>
-  viewemail <messageid>
-  viewheaders <messageid>
+  postmgt viewemail <messageid>
+  postmgt viewheaders <messageid>
 
 Arguments:
   count                        Display a count of the emails in the queue
