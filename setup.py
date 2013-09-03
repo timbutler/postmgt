@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='postmgt',
-    version='0.3',
+    version='0.4',
     install_requires=['blessings', 'docopt'],
     url='https://github.com/timbutler/postmgt',
     license='GPL 2',
